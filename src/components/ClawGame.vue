@@ -9,6 +9,7 @@
 	const prize = ref(null);
 	let currentCoin = ref(0);
 	let totalCoins = ref(3);
+	const midGameModal = ref(false);
 
 	const percentageWinner = (chance = 0.3) => {
 		const randomer = gsap.utils.random(0, 1, 0.1);
@@ -39,10 +40,17 @@
 	const oneCoinCycle = () => {
 		gameInPlay.value = false;
 		currentCoin.value += 1;
+		midGameModal.value = true;
 
 		if (currentCoin.value === totalCoins.value) {
 			gameEnded.value = true;
+			midGameModal.value = false;
 		}
+	};
+
+	const closeModal = () => {
+		console.log('closeModal');
+		midGameModal.value = false;
 	};
 
 	const down = () => {
@@ -63,7 +71,7 @@
 				ref="claw"
 				width="100"
 				height="100"
-				class="absolute top-0 left-0 w-16 h-16 bg-yellow-400"
+				class="absolute top-0 left-0 w-16 h-16 bg-yellow-400 z-10"
 				:class="{ mover: gameStarted, 'mover--paused': gameInPlay }"
 			>
 				<div
@@ -82,9 +90,26 @@
 				<img
 					src="/assets/images/base-eggs-front.png"
 					alt=""
-					class="absolute bottom-0 left-0"
+					class="absolute bottom-0 left-0 z-20"
 				/>
 			</div>
+		</div>
+
+		<div
+			:class="[
+				'absolute top-0 left-0 w-full h-full',
+				'flex flex-col gap-y-3 justify-center items-center text-center',
+				'bg-gray-600 text-white transition-opacity',
+				midGameModal ? 'opacity-100 z-30' : 'opacity-0 -z-10',
+			]"
+		>
+			<p>You won something/You didn't win anything</p>
+			<p>Keep going!</p>
+			<button
+				@click="closeModal"
+				class="button border-white hover:bg-white hover:text-gray-600"
+				v-text="`Close`"
+			/>
 		</div>
 
 		<div v-if="!gameEnded" class="flex flex-col gap-y-2 mt-4">
