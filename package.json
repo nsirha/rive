@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "@rive-app/canvas": "^1.0.99",
+        "@vueuse/core": "^9.13.0",
         "vue": "^3.2.45",
         "vue-router": "^4.0.13"
     },
