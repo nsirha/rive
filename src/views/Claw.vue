@@ -111,8 +111,8 @@
 				ref="clawContainer"
 				:class="[
 					'relative w-[100px] h-[150px] z-10',
-					'before:absolute before:-top-[999px] before:left-1/2 before:-translate-x-1/2',
-					'before:h-[999px] before:w-[3px] before:bg-black before:z-10',
+					'before:absolute before:-top-[9970px] before:left-1/2 before:-translate-x-1/2',
+					'before:h-[9999px] before:w-[3px] before:bg-[#414141] before:z-10',
 					{ mover: gameStarted, 'mover--paused': gameInPlay },
 				]"
 			>
