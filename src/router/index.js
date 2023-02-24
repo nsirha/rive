@@ -5,12 +5,13 @@ import Gsap from '@/views/Gsap.vue';
 import Nice from '@/views/Nice.vue';
 import NotFound from '@/views/NotFound.vue';
 import Rive from '@/views/Rive.vue';
+import Claw from '@/views/Claw.vue';
 
 const routes = [
 	{
 		path: '/',
 		name: 'Home',
-		component: Rive,
+		component: Claw,
 	},
 	{
 		path: '/about',
@@ -31,6 +32,11 @@ const routes = [
 		path: '/rive',
 		name: 'Rive',
 		component: Rive,
+	},
+	{
+		path: '/claw',
+		name: 'Claw',
+		component: Claw,
 	},
 	{
 		path: '/:catchAll(.*)',
